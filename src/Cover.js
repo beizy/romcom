@@ -7,3 +7,4 @@ class Cover {
     this.tagline2 = descriptor2;
   }
 }
+
