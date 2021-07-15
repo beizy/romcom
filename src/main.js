@@ -1,15 +1,18 @@
 // Create variables targeting the relevant DOM elements here 👇
 //Buttons variables
-var hiddenHomeButton = document.querySelector('.home-button hidden');
+var hiddenHomeButton = document.querySelector('.home-button');
 var randomCoverButton = document.querySelector('.random-cover-button');
 var saveCoverButton = document.querySelector('.save-cover-button');
 var viewSavedCoverButton = document.querySelector('.view-saved-button');
 var makeYourOwnCoverButton = document.querySelector('.make-new-button');
+var form = document.querySelector('.form-view');
+var savedCoversView = document.querySelector('.saved-view')
 //View home-view elements/ main cover
 var coverImage = document.querySelector('.cover-image');
 var coverTitle = document.querySelector('.cover-title');
 var tagline1 = document.querySelector('.tagline-1');
 var tagline2 = document.querySelector('.tagline-2');
+var mainCoverView = document.querySelector('.main-cover')
 
 // We've provided a few variables below
 var savedCovers = [
@@ -31,12 +34,33 @@ function assignCover() {
 
 assignCover();
 
+function hideShowMakeCover(){
+  mainCoverView.classList.add('hidden');
+  randomCoverButton.style.display = 'none';
+  saveCoverButton.style.display = 'none';
+  hiddenHomeButton.classList.remove('hidden');
+  form.classList.remove('hidden');
+}
+
+
+function hideShowSavedCover(){
+  mainCoverView.classList.add('hidden');
+  randomCoverButton.style.display = 'none';
+  saveCoverButton.style.display = 'none';
+  hiddenHomeButton.classList.remove('hidden');
+  savedCoversView.classList.remove('hidden');
+
+
+
+
+}
+
 // Add your event listeners here 👇
 randomCoverButton.addEventListener('click', assignCover);
 
-makeYourOwnCoverButton.addEventListener('click', );
+makeYourOwnCoverButton.addEventListener('click', hideShowMakeCover);
 
-
+viewSavedCoverButton.addEventListener('click', hideShowSavedCover)
 // Create your event handlers and other functions here 👇
 
 
