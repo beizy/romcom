@@ -34,6 +34,8 @@ assignCover();
 // Add your event listeners here 👇
 randomCoverButton.addEventListener('click', assignCover);
 
+makeYourOwnCoverButton.addEventListener('click', );
+
 
 // Create your event handlers and other functions here 👇
 
