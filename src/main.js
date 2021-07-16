@@ -1,14 +1,15 @@
 // Create variables targeting the relevant DOM elements here 👇
 //Buttons variables
-var hiddenHomeButton = document.querySelector('.home-button');
+var homeButton = document.querySelector('.home-button');
 var randomCoverButton = document.querySelector('.random-cover-button');
 var saveCoverButton = document.querySelector('.save-cover-button');
-var viewSavedCoverButton = document.querySelector('.view-saved-button');
-var makeYourOwnCoverButton = document.querySelector('.make-new-button');
-var form = document.querySelector('.form-view');
-var savedCoversView = document.querySelector('.saved-view')
+var viewSavedButton = document.querySelector('.view-saved-button');
+var makeNewButton = document.querySelector('.make-new-button');
+var homeView = document.querySelector('.home-view')
+var formView = document.querySelector('.form-view');
+var savedView = document.querySelector('.saved-view')
 var savedCoversSection = document.querySelector('.saved-covers-section');
-var makeMyBookButton = document.querySelector('.create-new-book-button');
+var createNewBookButton = document.querySelector('.create-new-book-button');
 var userCover = document.querySelector('#cover');
 var userTitle = document.querySelector('#title');
 var userDesc1 = document.querySelector('#descriptor1');
@@ -18,7 +19,7 @@ var coverImage = document.querySelector('.cover-image');
 var coverTitle = document.querySelector('.cover-title');
 var tagline1 = document.querySelector('.tagline-1');
 var tagline2 = document.querySelector('.tagline-2');
-var mainCoverView = document.querySelector('.main-cover')
+var mainCover = document.querySelector('.main-cover')
 
 // We've provided a few variables below
 // var savedCovers = [
@@ -32,13 +33,13 @@ var currentCover;
 // Add your event listeners here 👇
 randomCoverButton.addEventListener('click', assignCover);
 
-makeYourOwnCoverButton.addEventListener('click', showMakeCover);
+makeNewButton.addEventListener('click', showMakeCover);
 
-viewSavedCoverButton.addEventListener('click', showSavedCover);
+viewSavedButton.addEventListener('click', showSavedCover);
 
-hiddenHomeButton.addEventListener('click', showHome);
+homeButton.addEventListener('click', showHome);
 
-makeMyBookButton.addEventListener('click', makeMyBook);
+createNewBookButton.addEventListener('click', makeMyBook);
 
 // Create your event handlers and other functions here 👇
 
@@ -57,31 +58,33 @@ function assignCover() {
 };
 
 function showMakeCover(){
-  mainCoverView.classList.add('hidden');
+  homeView.classList.add('hidden');
+  formView.classList.remove('hidden');
+  savedView.classList.add('hidden')
   randomCoverButton.classList.add('hidden');
   saveCoverButton.classList.add('hidden');
-  hiddenHomeButton.classList.remove('hidden');
-  form.classList.remove('hidden');
-  savedCoversView.classList.add('hidden');
+  homeButton.classList.remove('hidden');
 }
 
 function showSavedCover(){
+  savedView.classList.remove('hidden');
+  formView.classList.add('hidden');
+  homeView.classList.add('hidden');
   randomCoverButton.classList.add('hidden');
   saveCoverButton.classList.add('hidden');
-  hiddenHomeButton.classList.remove('hidden');
-  savedCoversView.classList.remove('hidden');
-  savedCoversView.classList.add('mini-cover');
-  form.classList.add('hidden');
-  mainCoverView.classList.add('hidden');
+  homeButton.classList.remove('hidden');
+  savedCoverSection.classList.add('mini-cover');
+  
 };
 
 function showHome() {
-  hiddenHomeButton.classList.add('hidden');
-  mainCoverView.classList.remove('hidden');
-  randomCoverButton.classList.remove('hidden');
+  homeView.classList.remove('hidden');
+  formView.classList.add('hidden');
+  savedView.classList.add('hidden');
+  homeButton.classList.add('hidden');
   randomCoverButton.classList.remove('hidden');
   saveCoverButton.classList.remove('hidden');
-  form.classList.add('hidden');
+
 };
 
 function makeMyBook() {
