@@ -21,16 +21,12 @@ var tagline1 = document.querySelector('.tagline-1');
 var tagline2 = document.querySelector('.tagline-2');
 var mainCover = document.querySelector('.main-cover')
 
-
-
-
 var savedCovers = [];
 
 var currentCover;
 
-
-
 // Add your event listeners here 👇
+
 randomCoverButton.addEventListener('click', assignCover);
 
 makeNewButton.addEventListener('click', showMakeCover);
@@ -49,12 +45,8 @@ savedView.addEventListener('dblclick', deleteCover);
 
 function deleteCover(event) {
   var idElement = event.target.parentNode.id;
-  // console.log(idElement);
-  // console.log(savedCovers[0].id)
-  // console.log(savedCovers[0].id == idElement)
   for (var i = 0; i < savedCovers.length; i++) {
     if (savedCovers[i].id == idElement) {
-      //console.log('test')
       savedCovers.splice(i, 1);
     };
   };
@@ -101,6 +93,7 @@ function showSavedCover(){
   saveCoverButton.classList.add('hidden');
   homeButton.classList.remove('hidden');
   savedView.classList.remove('hidden');  
+
   for(var i = 0; i < savedCovers.length; i++) {
       savedCoversSection.innerHTML += `
   <section class="mini-cover" id="${savedCovers[i].id}">
@@ -121,6 +114,7 @@ function showHome() {
   homeButton.classList.add('hidden');
   randomCoverButton.classList.remove('hidden');
   saveCoverButton.classList.remove('hidden');
+  savedCoversSection.innerHTML = "";
 
 };
 
@@ -136,9 +130,10 @@ function makeMyBook(event) {
   coverTitle.innerText = currentCover.title;
   tagline1.innerText = currentCover.tagline1;
   tagline2.innerText = currentCover.tagline2;
+  savedCoversSection.innerHTML = "";
 };
 
 //We've provided one function to get you started
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
-}
+};
