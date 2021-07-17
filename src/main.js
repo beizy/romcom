@@ -83,15 +83,16 @@ function showSavedCover(){
   saveCoverButton.classList.add('hidden');
   homeButton.classList.remove('hidden');
   savedView.classList.remove('hidden');  
+
   for(var i = 0; i < savedCovers.length; i++) {
       savedCoversSection.innerHTML += `
   <section class="mini-cover">
   <img class="mini-cover" src="${savedCovers[i].cover}">
   <h2 class="cover-title">${savedCovers[i].title}</h2>
-  <h3 class="tagline">${savedCovers[i].tagline1} <span class="tagline-1">passion</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
+  <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
   <img class="price-tag" src="./assets/price.png">
   <img class="overlay" src="./assets/overlay.png">
-</section>
+  </section>
   `;
    }; 
 };
@@ -103,6 +104,7 @@ function showHome() {
   homeButton.classList.add('hidden');
   randomCoverButton.classList.remove('hidden');
   saveCoverButton.classList.remove('hidden');
+  savedCoversSection.innerHTML = "";
 
 };
 
@@ -118,6 +120,7 @@ function makeMyBook() {
   coverTitle.innerText = currentCover.title;
   tagline1.innerText = currentCover.tagline1;
   tagline2.innerText = currentCover.tagline2;
+  savedCoversSection.innerHTML = "";
 };
 
 //We've provided one function to get you started
