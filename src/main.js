@@ -97,6 +97,7 @@ function showSavedCover(){
   saveCoverButton.classList.add('hidden');
   homeButton.classList.remove('hidden');
   savedView.classList.remove('hidden');  
+
   for(var i = 0; i < savedCovers.length; i++) {
       savedCoversSection.innerHTML += `
   <section class="mini-cover" id="${savedCovers[i].id}">
@@ -117,6 +118,7 @@ function showHome() {
   homeButton.classList.add('hidden');
   randomCoverButton.classList.remove('hidden');
   saveCoverButton.classList.remove('hidden');
+  savedCoversSection.innerHTML = "";
 
 };
 
@@ -132,6 +134,7 @@ function makeMyBook(event) {
   coverTitle.innerText = currentCover.title;
   tagline1.innerText = currentCover.tagline1;
   tagline2.innerText = currentCover.tagline2;
+  savedCoversSection.innerHTML = "";
 };
 
 //We've provided one function to get you started
