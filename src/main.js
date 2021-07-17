@@ -21,10 +21,10 @@ var tagline1 = document.querySelector('.tagline-1');
 var tagline2 = document.querySelector('.tagline-2');
 var mainCover = document.querySelector('.main-cover')
 
-// We've provided a few variables below
-// var savedCovers = [
-//   new Cover(covers[4], titles[3], tagline1[7], tagline2[1]), new Cover(covers[1], titles[5], tagline1[6], tagline2[2])
-// ];
+
+
+
+var savedCovers = [];
 
 var currentCover;
 
@@ -41,9 +41,18 @@ homeButton.addEventListener('click', showHome);
 
 createNewBookButton.addEventListener('click', makeMyBook);
 
+saveCoverButton.addEventListener('click', saveCover);
+
 // Create your event handlers and other functions here 👇
 
 assignCover();
+
+function saveCover() {
+  event.preventDefault();
+  if(!savedCovers.includes(currentCover)) {
+    savedCovers.push(currentCover);
+  };
+};
 
 function assignCover() {
   var randomCover = covers[getRandomIndex(covers)];
@@ -60,7 +69,7 @@ function assignCover() {
 function showMakeCover(){
   homeView.classList.add('hidden');
   formView.classList.remove('hidden');
-  savedView.classList.add('hidden')
+  savedView.classList.add('hidden');
   randomCoverButton.classList.add('hidden');
   saveCoverButton.classList.add('hidden');
   homeButton.classList.remove('hidden');
@@ -73,8 +82,18 @@ function showSavedCover(){
   randomCoverButton.classList.add('hidden');
   saveCoverButton.classList.add('hidden');
   homeButton.classList.remove('hidden');
-  savedCoverSection.classList.add('mini-cover');
-  
+  savedView.classList.remove('hidden');  
+  for(var i = 0; i < savedCovers.length; i++) {
+      savedCoversSection.innerHTML += `
+  <section class="mini-cover">
+  <img class="mini-cover" src="${savedCovers[i].cover}">
+  <h2 class="cover-title">${savedCovers[i].title}</h2>
+  <h3 class="tagline">${savedCovers[i].tagline1} <span class="tagline-1">passion</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
+  <img class="price-tag" src="./assets/price.png">
+  <img class="overlay" src="./assets/overlay.png">
+</section>
+  `;
+   }; 
 };
 
 function showHome() {
