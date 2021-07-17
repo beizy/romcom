@@ -43,11 +43,24 @@ createNewBookButton.addEventListener('click', makeMyBook);
 
 saveCoverButton.addEventListener('click', saveCover);
 
+savedView.addEventListener('dblclick', deleteCover);
+
+/*
+1. create event listener double click on show saved covers section
+   2. declare event handler that would a function to perform when the event gets trigger
+    2.1 
+*/
+
 // Create your event handlers and other functions here 👇
 
+function deleteCover(event) {
+  console.log(event.target.parentNode.id);
+
+};
 assignCover();
 
-function saveCover() {
+function saveCover(event) {
+  console.log(event.target);
   event.preventDefault();
   if(!savedCovers.includes(currentCover)) {
     savedCovers.push(currentCover);
@@ -76,6 +89,7 @@ function showMakeCover(){
 }
 
 function showSavedCover(){
+  savedCoversSection.innerHTML = "";
   savedView.classList.remove('hidden');
   formView.classList.add('hidden');
   homeView.classList.add('hidden');
@@ -85,13 +99,13 @@ function showSavedCover(){
   savedView.classList.remove('hidden');  
   for(var i = 0; i < savedCovers.length; i++) {
       savedCoversSection.innerHTML += `
-  <section class="mini-cover">
-  <img class="mini-cover" src="${savedCovers[i].cover}">
-  <h2 class="cover-title">${savedCovers[i].title}</h2>
-  <h3 class="tagline">${savedCovers[i].tagline1} <span class="tagline-1">passion</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
-  <img class="price-tag" src="./assets/price.png">
-  <img class="overlay" src="./assets/overlay.png">
-</section>
+  <section class="mini-cover" id="${savedCovers[i].id}">
+    <img class="mini-cover" src="${savedCovers[i].cover}">
+    <h2 class="cover-title">${savedCovers[i].title}</h2>
+    <h3 class="tagline">A tale of ${savedCovers[i].tagline1} and ${savedCovers[i].tagline2}</h3>
+    <img class="price-tag" src="./assets/price.png">
+    <img class="overlay" src="./assets/overlay.png">
+  </section>
   `;
    }; 
 };
@@ -106,7 +120,7 @@ function showHome() {
 
 };
 
-function makeMyBook() {
+function makeMyBook(event) {
   event.preventDefault();
   covers.unshift(userCover.value);
   titles.unshift(userTitle.value);
