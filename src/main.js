@@ -1,5 +1,4 @@
-// Create variables targeting the relevant DOM elements here 👇
-//Buttons variables
+
 var homeButton = document.querySelector('.home-button');
 var randomCoverButton = document.querySelector('.random-cover-button');
 var saveCoverButton = document.querySelector('.save-cover-button');
@@ -25,7 +24,7 @@ var savedCovers = [];
 
 var currentCover;
 
-// Add your event listeners here 👇
+
 
 randomCoverButton.addEventListener('click', assignCover);
 
@@ -41,7 +40,7 @@ saveCoverButton.addEventListener('click', saveCover);
 
 savedView.addEventListener('dblclick', deleteCover);
 
-// Create your event handlers and other functions here 👇
+
 
 function deleteCover(event) {
   var idElement = event.target.parentNode.id;
@@ -50,10 +49,9 @@ function deleteCover(event) {
       savedCovers.splice(i, 1);
     };
   };
-  console.log(savedCovers);
   showSavedCover();
-
 };
+
 assignCover();
 
 function saveCover(event) {
@@ -115,7 +113,6 @@ function showHome() {
   randomCoverButton.classList.remove('hidden');
   saveCoverButton.classList.remove('hidden');
   savedCoversSection.innerHTML = "";
-
 };
 
 function makeMyBook(event) {
@@ -133,7 +130,7 @@ function makeMyBook(event) {
   savedCoversSection.innerHTML = "";
 };
 
-//We've provided one function to get you started
+
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
