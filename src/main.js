@@ -21,16 +21,12 @@ var tagline1 = document.querySelector('.tagline-1');
 var tagline2 = document.querySelector('.tagline-2');
 var mainCover = document.querySelector('.main-cover')
 
-
-
-
 var savedCovers = [];
 
 var currentCover;
 
-
-
 // Add your event listeners here 👇
+
 randomCoverButton.addEventListener('click', assignCover);
 
 makeNewButton.addEventListener('click', showMakeCover);
@@ -45,22 +41,22 @@ saveCoverButton.addEventListener('click', saveCover);
 
 savedView.addEventListener('dblclick', deleteCover);
 
-/*
-1. create event listener double click on show saved covers section
-   2. declare event handler that would a function to perform when the event gets trigger
-    2.1 
-*/
-
 // Create your event handlers and other functions here 👇
 
 function deleteCover(event) {
-  console.log(event.target.parentNode.id);
+  var idElement = event.target.parentNode.id;
+  for (var i = 0; i < savedCovers.length; i++) {
+    if (savedCovers[i].id == idElement) {
+      savedCovers.splice(i, 1);
+    };
+  };
+  console.log(savedCovers);
+  showSavedCover();
 
 };
 assignCover();
 
 function saveCover(event) {
-  console.log(event.target);
   event.preventDefault();
   if(!savedCovers.includes(currentCover)) {
     savedCovers.push(currentCover);
@@ -140,4 +136,4 @@ function makeMyBook(event) {
 //We've provided one function to get you started
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
-}
+};
