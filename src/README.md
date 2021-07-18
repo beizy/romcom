@@ -29,4 +29,4 @@
 ## Challenges + Improvements
 	- The biggest difficulty was how to select the elemnt we click/double click.
 	- Another challenge was to find the rignt syntax to incorporate a section of HTML saved covers iterating through an array.
-	- It was challenge to find the rignt time to work together due to time zone difference.
+	- It was a challenge to find the rignt time to work together due to time zone difference.
