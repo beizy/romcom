@@ -4,16 +4,15 @@ var randomCoverButton = document.querySelector('.random-cover-button');
 var saveCoverButton = document.querySelector('.save-cover-button');
 var viewSavedButton = document.querySelector('.view-saved-button');
 var makeNewButton = document.querySelector('.make-new-button');
+var createNewBookButton = document.querySelector('.create-new-book-button');
 var homeView = document.querySelector('.home-view')
 var formView = document.querySelector('.form-view');
 var savedView = document.querySelector('.saved-view')
 var savedCoversSection = document.querySelector('.saved-covers-section');
-var createNewBookButton = document.querySelector('.create-new-book-button');
 var userCover = document.querySelector('#cover');
 var userTitle = document.querySelector('#title');
 var userDesc1 = document.querySelector('#descriptor1');
 var userDesc2 = document.querySelector('#descriptor2');
-//View home-view elements/ main cover
 var coverImage = document.querySelector('.cover-image');
 var coverTitle = document.querySelector('.cover-title');
 var tagline1 = document.querySelector('.tagline-1');
